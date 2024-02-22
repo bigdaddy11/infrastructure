@@ -1,5 +1,4 @@
 <img src="https://capsule-render.vercel.app/api?type=Waving&color=auto&height=300&section=header&text=Kafka3.6.1(Kraft%20Using)&fontSize=50" />
-
 ■ 카프카 클러스터 코디네이터 역할을 하는 Zookeeper를 걷어낸 버전
 
    └ 기존 주키퍼의 외부 메타데이터 관리에 이슈가 있어 Kafka 내부에 쿼럼 컨트롤러 서비스 사용
