@@ -1,5 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=모양&color=색상코드&height=높이&section=header&text=텍스트&fontSize=텍스트크기" />
-**Kafka 3.6.1 (KRaft Using)**
+<img src="https://capsule-render.vercel.app/api?type=Waving&color=auto&height=300&section=header&text=Kafka3.6.1(Kraft%20Using)&fontSize=50" />
 
 ■ 카프카 클러스터 코디네이터 역할을 하는 Zookeeper를 걷어낸 버전
 
