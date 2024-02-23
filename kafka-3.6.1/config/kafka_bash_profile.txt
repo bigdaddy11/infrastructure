@@ -1,0 +1,46 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+export PATH=$PATH:$HOME/bin:/shcsw/jdk21/bin
+
+KAFKA_HOME=/shcsw/kafka-3.6.1
+KAFKA_CLUSTER=localhost:9092,localhost:9082,localhost:9072
+
+kk() {
+if [ -n "$1" ]; then
+        if [ $1 == "tp" ]; then #Topic Commands
+                if [ -n "$2" ]; then
+                                        if [ $2" == "delete" ]; then
+                                                ${KAFKA_HOME}/bin/kafka-topics.sh \
+                                                --bootstrap-server ${KAFKA_CLUSTER} \
+                                                --delete
+                                                --topic $3
+                    elif [ $2" == "create" ]; then
+                                                ${KAFKA_HOME}/bin/kafka-topics.sh \
+                                                --bootstrap-server ${KAFKA_CLUSTER} \
+                                                --create \
+                                                --topic $3 \
+                                                --partitions $4 \
+                                                --replication-factor $5
+                                        else
+                                                ${KAFKA_HOME}/bin/kafka-topics.sh \
+                        --bootstrap-server ${KAFKA_CLUSTER} \
+                        --describe \
+                        --topic $2
+                                        fi
+                else
+                    ${KAFKA_HOME}/bin/kafka-topics.sh \
+                                        --bootstrap-server ${KAFKA_CLUSTER} \
+                                        --list
+                fi
+        fi
+else
+    echo "Please enter a variable."
+fi
+}
