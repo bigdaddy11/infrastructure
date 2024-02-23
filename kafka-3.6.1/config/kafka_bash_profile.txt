@@ -16,31 +16,30 @@ kk() {
 if [ -n "$1" ]; then
         if [ $1 == "tp" ]; then #Topic Commands
                 if [ -n "$2" ]; then
-                                        if [ $2" == "delete" ]; then
-                                                ${KAFKA_HOME}/bin/kafka-topics.sh \
-                                                --bootstrap-server ${KAFKA_CLUSTER} \
-                                                --delete
-                                                --topic $3
-                    elif [ $2" == "create" ]; then
-                                                ${KAFKA_HOME}/bin/kafka-topics.sh \
-                                                --bootstrap-server ${KAFKA_CLUSTER} \
-                                                --create \
-                                                --topic $3 \
-                                                --partitions $4 \
-                                                --replication-factor $5
-                                        else
-                                                ${KAFKA_HOME}/bin/kafka-topics.sh \
-                        --bootstrap-server ${KAFKA_CLUSTER} \
-                        --describe \
-                        --topic $2
-                                        fi
-                else
-                    ${KAFKA_HOME}/bin/kafka-topics.sh \
+                        if [ $2 == "delete" ]; then
+                                        ${KAFKA_HOME}/bin/kafka-topics.sh \
                                         --bootstrap-server ${KAFKA_CLUSTER} \
-                                        --list
+                                        --delete \
+                                        --topic $3
+                        elif [ $2 == "create" ]; then
+                                        ${KAFKA_HOME}/bin/kafka-topics.sh \
+                                        --bootstrap-server ${KAFKA_CLUSTER} \
+                                        --create \
+                                        --topic $3 \
+                                        --partitions $4 \
+                                        --replication-factor $5
+                        else
+                                ${KAFKA_HOME}/bin/kafka-topics.sh \
+                                --bootstrap-server ${KAFKA_CLUSTER} \
+                                --describe \
+                                --topic $2
+                         fi
+                else
+                        ${KAFKA_HOME}/bin/kafka-topics.sh \
+                        --bootstrap-server ${KAFKA_CLUSTER} \
+                        --list
                 fi
         fi
 else
     echo "Please enter a variable."
 fi
-}
